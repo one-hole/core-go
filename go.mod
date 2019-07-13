@@ -3,6 +3,7 @@ module core-go
 go 1.12
 
 require (
+	4d63.com/gochecknoinits v0.0.0-20180528051558-14d5915061e5 // indirect
 	cloud.google.com/go v0.41.0 // indirect
 	github.com/DataDog/zstd v1.4.0 // indirect
 	github.com/OneOfOne/xxhash v1.2.5 // indirect
