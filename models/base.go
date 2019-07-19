@@ -19,7 +19,7 @@ func init() {
 		config.MySQL.Password,
 		config.MySQL.Name,
 	)
-	
+
 	mysql.ConfigureMySQL(db, config.MySQL.Idles, config.MySQL.Connections)
 }
 

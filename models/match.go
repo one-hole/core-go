@@ -9,6 +9,7 @@ type Match struct {
 	EndAt    time.Time
 	Reverse  bool `gorm:"default:false"`
 	Battle   Battle
+	Type     string
 }
 
 func (Match) TableName() string {

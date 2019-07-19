@@ -30,7 +30,7 @@ type Battle struct {
 	LeftTeamID  uint `gorm:"column:left_team_id"`
 	RightTeamID uint `gorm:"column:right_team_id"`
 	Format      uint `gorm:"column:format;default:1"` // BO1 As Default
-	OfficialUD  uint `gorm:"column:official_id"`
+	OfficialID  uint `gorm:"column:official_id"`
 	LeagueID    uint `gorm:"column:league_id"`
 	Live        bool `gorm:"default:false"`
 	StartTime   time.Time
@@ -42,7 +42,23 @@ type Battle struct {
 	LeftTeam  Team
 	RightTeam Team
 	League    League
-	Matchs    []Match
+	Matches   []Match
+}
+
+/* Scopes */
+func (v *Battle) withGame(gameID uint) *gorm.DB {
+	return db.Model(v).Where(&Battle{GameID: gameID})
+}
+
+// FilterParams - for scopes
+func (v *Battle) FilterParams(params map[string]string) *gorm.DB {
+	var records = db.Model(v)
+
+	if value, ok := params["game_id"]; ok {
+		id, _ := strconv.Atoi(value)
+		records = v.withGame(uint(id))
+	}
+	return records
 }
 
 // FilterParams - for scopes
