@@ -14,9 +14,7 @@ func Index(ctx *gin.Context) {
 	var battles []*models.Battle
 	var battle = &models.Battle{}
 
-	params := helper.Params(ctx)
-	battle.FilterParams(params).Preload("LeftTeam").Preload("RightTeam").Find(&battles)
-
+	helper.Page(battle.FilterParams(helper.Params(ctx)).Preload("LeftTeam").Preload("RightTeam").Preload("League"), helper.CurrentPage(ctx)).Find(&battles)
 	resp, err := serializers.CollectionSerializer(&admin.BattleIndexSerializer{}, battles)
 
 	if err != nil {
