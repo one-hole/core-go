@@ -11,6 +11,6 @@ func ApplyRoutes(router *gin.RouterGroup) {
 	admin := router.Group("/admin")
 	{
 		admin.GET("/home", home.Index)
-		admin.GET("/games", games.Index)
+		admin.GET("/games", games.Index())
 	}
 }

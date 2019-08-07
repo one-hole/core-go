@@ -2,7 +2,6 @@ package models
 
 import (
 	"core-go/config"
-
 	"github.com/jinzhu/gorm"
 	"github.com/one-hole/gonrails/models/mysql"
 )
@@ -12,6 +11,7 @@ var (
 )
 
 func init() {
+
 	db = mysql.Open(
 		config.MySQL.Host,
 		config.MySQL.Port,
