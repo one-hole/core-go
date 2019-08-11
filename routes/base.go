@@ -1,19 +1,21 @@
 package routes
+
 import (
+	"core-go/routes/api"
 	"net/http"
 	"os"
 	"time"
 
-	"core-go/routes/admin"
-	"core-go/controllers/home"
 	"core-go/controllers/books"
+	"core-go/routes/admin"
+
 	"github.com/gin-gonic/gin"
 )
 
 func Start() {
 	router := routers()
 	s := &http.Server{
-		Addr:           ":8080",
+		Addr:           ":3000",
 		Handler:        router,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
@@ -28,8 +30,8 @@ func routers() *gin.Engine {
 	root := router.Group("")
 	{
 		admin.ApplyRoutes(root)
+		api.ApplyRoutes(root)
 
-		root.GET("/home", home.Index)
 		root.GET("/books", books.Index)
 		root.GET("/books/:id", books.Show)
 	}

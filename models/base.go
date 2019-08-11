@@ -3,7 +3,7 @@ package models
 import (
 	"core-go/config"
 	"github.com/jinzhu/gorm"
-	"github.com/one-hole/gonrails/models/mysql"
+	"github.com/gonrails/gonrails/models/mysql"
 )
 
 var (

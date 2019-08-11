@@ -4,7 +4,7 @@ import (
 	serializer "core-go/serializers"
 
 	"github.com/gin-gonic/gin"
-	"github.com/one-hole/gonrails/serializers"
+	"github.com/gonrails/gonrails/serializers"
 )
 
 func Show(ctx *gin.Context) {
