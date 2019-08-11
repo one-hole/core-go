@@ -5,8 +5,8 @@ import (
 	"core-go/serializers/admin"
 
 	"github.com/gin-gonic/gin"
-	"github.com/one-hole/gonrails/controllers/helper"
-	"github.com/one-hole/gonrails/serializers"
+	"github.com/gonrails/gonrails/controllers/helper"
+	"github.com/gonrails/gonrails/serializers"
 )
 
 // Index - GET admin/index

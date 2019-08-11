@@ -65,24 +65,3 @@ func (v *Battle) FilterParams(params map[string]string) *gorm.DB {
 	}
 	return records
 }
-
-// FilterParams - for scopes
-func (v *Battle) FilterParams(params map[string]string) *gorm.DB {
-	var records = db.Model(v)
-
-	if value, ok := params["game_id"]; ok {
-		id, _ := strconv.Atoi(value)
-		records = records.Where(&Battle{GameID: uint(id)})
-	}
-
-	if value, ok := params["league_id"]; ok {
-		id, _ := strconv.Atoi(value)
-		records = records.Where(&Battle{LeagueID: uint(id)})
-	}
-
-	if value, ok := params["page"]; ok {
-		page, _ := strconv.Atoi(value)
-		records = records.Offset((page - 1) * 10).Limit(10)
-	}
-	return records
-}

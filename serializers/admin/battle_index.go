@@ -3,7 +3,7 @@ package admin
 import (
 	"core-go/models"
 
-	"github.com/one-hole/gonrails/serializers"
+	"github.com/gonrails/gonrails/serializers"
 	"github.com/w-zengtao/struct2json"
 )
 
